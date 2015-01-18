@@ -33,20 +33,41 @@
       return (
         React.createElement("div", null, 
           this.getCells().map(function(cell,index){
-              return React.createElement(Tile, {onClick: that.handleClick.bind(null,index), content: cell, key: index})
+            return React.createElement(Tile, {onClick: that.handleClick.bind(null,index), content: cell, key: index})
           })
         )
       )
     },
     handleClick: function(square) {
-      // console.log('HandleClick in TTT' );
-      // console.log( this );
-      // console.log( square )
       var row = parseInt(square / 3)
       var col = parseInt(square % 3)
       var newState = this.state.squares
-      newState[row][col] = "?"
-      this.setState({squares: newState})
+      
+      if (this.tileEmpty(newState[row][col])){
+        this.fillTile(newState, row, col)
+        this.updateTurn() 
+      }else{ console.log("Invalid Move")}
+    },
+    tileEmpty: function(tile){
+      return tile === " " ? true : false
+    },
+    fillTile: function(board, row, col){
+      board[row][col] = this.currentPlayer()
+      this.updateBoard(board)
+    },
+    updateBoard: function(newBoard){
+      console.log(newBoard)
+      this.setState({
+        squares: newBoard,
+      })
+    },
+    updateTurn: function(){
+      this.setState({
+        players: [this.state.players[1],this.state.players[0]]
+      })
+    },
+    currentPlayer: function(){
+      return this.state.players[0]
     }
   });
 
