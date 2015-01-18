@@ -32,13 +32,20 @@
       return (
         <div>
           {this.getCells().map(function(cell,index){
-              return <Tile onClick={that.handleClick} content={cell} key={index}/>
+              return <Tile onClick={that.handleClick.bind(null,index)} content={cell} key={index}/>
           })}
         </div>
       )
     },
-    handleClick: function() {
-      console.log('HanldeClick in TTT' );
+    handleClick: function(square) {
+      // console.log('HandleClick in TTT' );
+      // console.log( this );
+      // console.log( square )
+      var row = parseInt(square / 3)
+      var col = parseInt(square % 3)
+      var newState = this.state.squares
+      newState[row][col] = "?"
+      this.setState({squares: newState})
     }
   });
 
