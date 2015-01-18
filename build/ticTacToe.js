@@ -5,7 +5,8 @@
   var Tile = React.createClass({displayName: "Tile",
     render: function() {
       var marker = this.props.content === " " ? null : this.props.content
-      var classes = "tile"
+      var position = "_"+this.props.position
+      var classes = "tile " + position
       if (marker){ classes += " "+marker}
       return (
         React.createElement("div", {onClick: this.props.onClick, className: classes}, "A tile: ", this.props.content)
@@ -59,7 +60,7 @@
       return (
         React.createElement("div", null, 
           this.getCells().map(function(cell,index){
-            return React.createElement(Tile, {onClick: that.handleClick.bind(null,index), content: cell, key: index})
+            return React.createElement(Tile, {onClick: that.handleClick.bind(null,index), content: cell, position: index, key: index})
           }), 
           React.createElement("div", {className: "status"}, this.state.status), 
           React.createElement("div", {className: "infoArea"}, "Current player: ", this.state.players[0].name, " playing as ", this.state.players[0].mark), 
