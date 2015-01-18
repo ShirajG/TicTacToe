@@ -3,9 +3,21 @@
 */
 (function(){
   var Tile = React.createClass({
+
+    getInitialState: function(){
+      return{
+        filled: false
+      }
+    },
+    fill: function (letter) {
+      this.setState({
+        filled: true
+      })
+    },
     render: function() {
+      var tileClass = this.state.filled ? this.state.contents : null
       return (
-        <div></div>
+        <div className={tileClass}>A tile: {this.props.content}</div>
       )
     }
   });
