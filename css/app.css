@@ -1,6 +1,28 @@
+#app{
+  width:80%;
+  margin: 0 auto;
+}
 .X {
   color: red;
 }
 .O {
   color: blue;
+}
+.tile{
+  display: inline-block;
+  width: 30%;
+  height: 20vw;
+  max-height: 200px;
+  background-color: gray;
+}
+._4{
+  border: 3px solid black;
+}
+._1, ._7{
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+}
+._3, ._5{
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
 }
