@@ -90,12 +90,6 @@
       }else{
         this.updateTurn()
       }
-      //Check for a win
-      //If theres a winner, set a win message
-      //Lock the game
-
-      // If no win
-      // Advance to the next players turn
     },
     checkWin: function(){
       var possibleWins = this.getDiagonals().concat(this.getCols()).concat(this.getRows())
