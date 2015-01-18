@@ -19,7 +19,8 @@
           [" ", " ", " "],
           [" ", " ", " "]
         ],
-        status:"in-progress"
+        status:"in-progress",
+        players: ["X", "O"] 
       }
     },
     getCells: function(){
