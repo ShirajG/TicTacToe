@@ -4,9 +4,11 @@
 (function(){
   var Tile = React.createClass({
     render: function() {
-      var tileClass = this.props.content === " " ? null : this.props.content
+      var marker = this.props.content === " " ? null : this.props.content
+      var classes = "tile"
+      if (marker){ classes += " "+marker}
       return (
-        <div onClick={this.props.onClick} className={tileClass}>A tile: {this.props.content}</div>
+        <div onClick={this.props.onClick} className={classes}>A tile: {this.props.content}</div>
       )
     }
   });
