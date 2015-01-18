@@ -6,7 +6,7 @@
     render: function() {
       var tileClass = this.props.content === " " ? null : this.props.content
       return (
-        React.createElement("div", {className: tileClass}, "A tile: ", this.props.content)
+        React.createElement("div", {onClick: this.props.onClick, className: tileClass}, "A tile: ", this.props.content)
       )
     }
   });
@@ -27,18 +27,19 @@
         return c.concat(p)
       })
     },
-    handleClick: function(i) {
-      console.log('You clicked: ' + i );
-    },
     render: function() {
+      var that = this
       return (
-        React.createElement("div", {onClick: this.handleClick}, 
+        React.createElement("div", null, 
           this.getCells().map(function(cell,index){
-              return React.createElement(Tile, {content: cell, key: index})
+              return React.createElement(Tile, {onClick: that.handleClick, content: cell, key: index})
           })
         )
       )
     },
+    handleClick: function() {
+      console.log('HanldeClick in TTT' );
+    }
   });
 
   React.render(

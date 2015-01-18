@@ -6,7 +6,7 @@
     render: function() {
       var tileClass = this.props.content === " " ? null : this.props.content
       return (
-        <div className={tileClass}>A tile: {this.props.content}</div>
+        <div onClick={this.props.onClick} className={tileClass}>A tile: {this.props.content}</div>
       )
     }
   });
@@ -28,14 +28,18 @@
       })
     },
     render: function() {
+      var that = this
       return (
         <div>
           {this.getCells().map(function(cell,index){
-              return <Tile content={cell} key={index}/>
+              return <Tile onClick={that.handleClick} content={cell} key={index}/>
           })}
         </div>
       )
     },
+    handleClick: function() {
+      console.log('HanldeClick in TTT' );
+    }
   });
 
   React.render(
