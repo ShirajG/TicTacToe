@@ -20,7 +20,7 @@
           [" ", " ", " "]
         ],
         status:"in-progress",
-        players: ["X", "O"] 
+        players: ["X", "O"]
       }
     },
     getCells: function(){
