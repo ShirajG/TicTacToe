@@ -58,6 +58,8 @@
           {this.getCells().map(function(cell,index){
             return <Tile onClick={that.handleClick.bind(null,index)} content={cell} key={index}/>
           })}
+          <div className='infoArea'> Current player: {this.state.players[0].name}</div>
+          <div className='errors'>{this.state.errors}</div>
         </div>
       )
     },
@@ -67,19 +69,19 @@
       var newState = this.state.squares
       
       if (this.tileEmpty(newState[row][col])){
+        this.setError(null)
         this.fillTile(newState, row, col)
         this.updateTurn() 
-      }else{ console.log("Invalid Move")}
+      }else{ this.setError("Invalid Move")}
     },
     tileEmpty: function(tile){
       return tile === " " ? true : false
     },
     fillTile: function(board, row, col){
-      board[row][col] = this.currentPlayer()
+      board[row][col] = this.currentPlayer().mark
       this.updateBoard(board)
     },
     updateBoard: function(newBoard){
-      console.log(newBoard)
       this.setState({
         squares: newBoard,
       })
@@ -91,7 +93,12 @@
     },
     currentPlayer: function(){
       return this.state.players[0]
-    }
+    },
+    setError: function (message) {
+      this.setState({
+        errors: message
+      })
+    }    
   });
 
   React.render(
