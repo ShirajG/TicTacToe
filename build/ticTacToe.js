@@ -34,13 +34,32 @@
         return c.concat(p)
       })
     },
+    getRows: function(){
+      return this.state.squares
+    },
+    getCols: function(){
+      result = [[],[],[]]
+      this.getCells().forEach(function(el,index){
+        result[parseInt(index % 3)].push(el)
+      })
+      return result
+    },
+    getDiagonals: function(){
+      diagonals = []
+      var cells = this.getCells()
+      diagonals.push([cells[0],cells[4],cells[8]])
+      diagonals.push([cells[2],cells[4],cells[6]])
+      return diagonals
+    },
     render: function() {
       var that = this
       return (
         React.createElement("div", null, 
           this.getCells().map(function(cell,index){
             return React.createElement(Tile, {onClick: that.handleClick.bind(null,index), content: cell, key: index})
-          })
+          }), 
+          React.createElement("div", {className: "infoArea"}, " Current player: ", this.state.players[0].name), 
+          React.createElement("div", {className: "errors"}, this.state.errors)
         )
       )
     },
