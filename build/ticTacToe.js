@@ -59,7 +59,8 @@
           this.getCells().map(function(cell,index){
             return React.createElement(Tile, {onClick: that.handleClick.bind(null,index), content: cell, key: index})
           }), 
-          React.createElement("div", {className: "infoArea"}, " Current player: ", this.state.players[0].name), 
+          React.createElement("div", {className: "status"}, this.state.status), 
+          React.createElement("div", {className: "infoArea"}, "Current player: ", this.state.players[0].name, " playing as ", this.state.players[0].mark), 
           React.createElement("div", {className: "errors"}, this.state.errors)
         )
       )

@@ -59,7 +59,8 @@
           {this.getCells().map(function(cell,index){
             return <Tile onClick={that.handleClick.bind(null,index)} content={cell} key={index}/>
           })}
-          <div className='infoArea'> Current player: {this.state.players[0].name}</div>
+          <div className='status'>{this.state.status}</div>
+          <div className='infoArea'>Current player: {this.state.players[0].name} playing as {this.state.players[0].mark}</div>
           <div className='errors'>{this.state.errors}</div>
         </div>
       )
