@@ -3,19 +3,8 @@
 */
 (function(){
   var Tile = React.createClass({displayName: "Tile",
-
-    getInitialState: function(){
-      return{
-        filled: false
-      }
-    },
-    fill: function (letter) {
-      this.setState({
-        filled: true
-      })
-    },
     render: function() {
-      var tileClass = this.state.filled ? this.state.contents : null
+      var tileClass = this.props.content === " " ? null : this.props.content
       return (
         React.createElement("div", {className: tileClass}, "A tile: ", this.props.content)
       )
@@ -38,9 +27,12 @@
         return c.concat(p)
       })
     },
+    handleClick: function(i) {
+      console.log('You clicked: ' + i );
+    },
     render: function() {
       return (
-        React.createElement("div", null, 
+        React.createElement("div", {onClick: this.handleClick}, 
           this.getCells().map(function(cell,index){
               return React.createElement(Tile, {content: cell, key: index})
           })
