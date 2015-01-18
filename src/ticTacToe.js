@@ -9,7 +9,7 @@
       var classes = "tile " + position
       if (marker){ classes += " "+marker}
       return (
-        <div onClick={this.props.onClick} className={classes}>A tile: {this.props.content}</div>
+        <div onClick={this.props.onClick} className={classes}><span>{this.props.content}</span></div>
       )
     }
   });

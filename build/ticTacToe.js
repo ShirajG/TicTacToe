@@ -9,7 +9,7 @@
       var classes = "tile " + position
       if (marker){ classes += " "+marker}
       return (
-        React.createElement("div", {onClick: this.props.onClick, className: classes}, "A tile: ", this.props.content)
+        React.createElement("div", {onClick: this.props.onClick, className: classes}, React.createElement("span", null, this.props.content))
       )
     }
   });
