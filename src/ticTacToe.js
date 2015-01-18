@@ -33,9 +33,18 @@
         status:"in-progress"
       }
     },
+    getCells: function(){
+      return this.state.squares.reduce(function(c,p){
+        return c.concat(p)
+      })
+    },
     render: function() {
       return (
-        <div></div>
+        <div>
+          {this.getCells().map(function(cell,index){
+              return <Tile content={cell} key={index}/>
+          })}
+        </div>
       )
     },
   });
