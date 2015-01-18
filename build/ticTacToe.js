@@ -22,6 +22,7 @@
           [" ", " ", " "]
         ],
         status:"in-progress",
+        won: false,
         players: [
           { mark:"X", name: name1 },
           { mark:"O", name: name2 }
@@ -68,11 +69,40 @@
       var col = parseInt(square % 3)
       var newState = this.state.squares
       
-      if (this.tileEmpty(newState[row][col])){
+      if(this.state.won){
+        this.setError("The game is over, no further moves can be made.")
+      }
+      else if ( this.tileEmpty(newState[row][col]) ){
         this.setError(null)
         this.fillTile(newState, row, col)
-        this.updateTurn() 
+        this.updateGame() 
       }else{ this.setError("Invalid Move")}
+    },
+    updateGame: function(){
+      if (this.checkWin()){
+        this.setState({
+          won: true,
+          status: "" + this.currentPlayer().name + " wins!"
+        })
+      }else{
+        this.updateTurn()
+      }
+      //Check for a win
+      //If theres a winner, set a win message
+      //Lock the game
+
+      // If no win
+      // Advance to the next players turn
+    },
+    checkWin: function(){
+      var possibleWins = this.getDiagonals().concat(this.getCols()).concat(this.getRows())
+      var player = this.currentPlayer()
+      for(var i = 0; i < possibleWins.length; i++){
+        if (possibleWins[i].join("") === ""+player.mark +player.mark +player.mark ){
+          return true
+        }
+      }
+      return false
     },
     tileEmpty: function(tile){
       return tile === " " ? true : false
