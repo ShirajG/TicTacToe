@@ -1,13 +1,27 @@
+body{
+  margin: 0;
+  padding:0;
+  background-color: #F6F6F6;
+}
+h2{
+  text-align: center;
+  position: relative;
+  font-size: 2em;
+  left: -2.5%;
+  font-family: 'Rock Salt', cursive;
+  color: #A2D9FF; 
+  text-shadow: 1px 1px 3px rgba(233,60,75,0.4);
+}
 #app{
-  width:80%;
-  max-width: 800px; 
-  margin: 0 auto;
+  width:55%;
+  max-width: 500px;
+  margin: 30px auto;
 }
 .X {
-  color: #A22;
+  color: #ED6268;
 }
 .O {
-  color: #22A;
+  color: #52C2EB;
 }
 .tile::before{
   display: block;
