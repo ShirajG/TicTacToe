@@ -4,10 +4,10 @@
 (function(){
   var Tile = React.createClass({displayName: "Tile",
     render: function() {
-      var marker = this.props.content === " " ? null : this.props.content
+      var mark = this.props.content === " " ? null : this.props.content
       var position = "_"+this.props.position
       var classes = "tile noselect " + position
-      if (marker){ classes += " "+marker}
+      if (mark){ classes += " "+mark}
       return (
         React.createElement("div", {onClick: this.props.onClick, className: classes}, React.createElement("span", null, this.props.content))
       )
@@ -25,10 +25,10 @@
           [" ", " ", " "]
         ],
         status:"in-progress",
-        won: false,
+        finished: false,
         players: [
-          { mark:"X", name: name1 },
-          { mark:"O", name: name2 }
+          { mark:"X"},
+          { mark:"O"}
         ],
         errors: null
       }
