@@ -65,8 +65,8 @@
           {this.getCells().map(function(cell,index){
             return <Tile onClick={that.handleClick.bind(null,index)} content={cell} position={index} key={index}/>
           })}
-          <div className='status'>{this.state.status}</div>
-          <div className='infoArea'>Current player: {this.state.players[0].name} playing as {this.state.players[0].mark}</div>
+          <div className='status'>Game is {this.state.status}</div>
+          <div className='infoArea'>{"" +this.state.players[0].mark+ "'s turn"}</div>
           <div className='errors'>{this.state.errors}</div>
           <input type="submit" value="New Game" onClick={this.restart}/>
         </div>
@@ -77,8 +77,8 @@
       var col = parseInt(square % 3)
       var newState = this.state.squares
       
-      if(this.state.won){
-        this.setError("The game is over, no further moves can be made.")
+      if(this.state.finished){
+        this.setError("The game is over, no further moves can be made, please start a new game.")
       }
       else if ( this.tileEmpty(newState[row][col]) ){
         this.setError(null)
@@ -89,12 +89,22 @@
     updateGame: function(){
       if (this.checkWin()){
         this.setState({
-          won: true,
-          status: "" + this.currentPlayer().name + " wins!"
+          finished: true,
+          status: "finished. " + this.currentPlayer().mark + " has won!"
         })
-      }else{
+      }
+      else if(this.checkFull()){
+        this.setState({
+          finished: true,
+          status: " locked, please start over."
+        })
+      }
+      else{
         this.updateTurn()
       }
+    },
+    checkFull: function () {
+      return this.getCells().indexOf(" ") === -1
     },
     checkWin: function(){
       var possibleWins = this.getDiagonals().concat(this.getCols()).concat(this.getRows())
