@@ -65,10 +65,12 @@
           {this.getCells().map(function(cell,index){
             return <Tile onClick={that.handleClick.bind(null,index)} content={cell} position={index} key={index}/>
           })}
-          <div className='status'>Game is {this.state.status}</div>
-          <div className='infoArea'>{"" +this.state.players[0].mark+ "'s turn"}</div>
           <div className='errors'>{this.state.errors}</div>
-          <input type="submit" value="New Game" onClick={this.restart}/>
+          <div className='info-area'>
+            <div className='status'>Game is {this.state.status}</div>
+            <div className='turn'>{"" +this.state.players[0].mark+ "'s turn"}</div>
+            <input type="submit" value="New Game" onClick={this.restart}/>
+          </div>
         </div>
       )
     },

@@ -65,10 +65,12 @@
           this.getCells().map(function(cell,index){
             return React.createElement(Tile, {onClick: that.handleClick.bind(null,index), content: cell, position: index, key: index})
           }), 
-          React.createElement("div", {className: "status"}, "Game is ", this.state.status), 
-          React.createElement("div", {className: "infoArea"}, "" +this.state.players[0].mark+ "'s turn"), 
           React.createElement("div", {className: "errors"}, this.state.errors), 
-          React.createElement("input", {type: "submit", value: "New Game", onClick: this.restart})
+          React.createElement("div", {className: "info-area"}, 
+            React.createElement("div", {className: "status"}, "Game is ", this.state.status), 
+            React.createElement("div", {className: "turn"}, "" +this.state.players[0].mark+ "'s turn"), 
+            React.createElement("input", {type: "submit", value: "New Game", onClick: this.restart})
+          )
         )
       )
     },
