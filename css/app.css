@@ -4,10 +4,10 @@
   margin: 0 auto;
 }
 .X {
-  color: red;
+  color: #A22;
 }
 .O {
-  color: blue;
+  color: #22A;
 }
 .tile::before{
   display: block;
@@ -19,6 +19,7 @@
   line-height: 0;
 }
 .tile{
+  font-family: 'Rock Salt', cursive;
   vertical-align:top;
   text-align: center;
   font-size: 2.5em;
@@ -29,13 +30,21 @@
   background-color: white;
 }
 ._4{
-  border: 2px solid black;
+  border: 1px solid rgba(0,0,0,0.5);
 }
 ._1, ._7{
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+  border-left: 1px solid rgba(0,0,0,0.5);
+  border-right: 1px solid rgba(0,0,0,0.5);
 }
 ._3, ._5{
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border-top: 1px solid rgba(0,0,0,0.5);
+  border-bottom: 1px solid rgba(0,0,0,0.5);
+}
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }

@@ -6,7 +6,7 @@
     render: function() {
       var marker = this.props.content === " " ? null : this.props.content
       var position = "_"+this.props.position
-      var classes = "tile " + position
+      var classes = "tile noselect " + position
       if (marker){ classes += " "+marker}
       return (
         <div onClick={this.props.onClick} className={classes}><span>{this.props.content}</span></div>
