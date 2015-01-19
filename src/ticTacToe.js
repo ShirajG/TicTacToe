@@ -16,8 +16,6 @@
 
   var TicTacToe = React.createClass({
     getInitialState: function() {
-      // var name1 = prompt("Who is going to play as 'X'?")
-      // var name2 = prompt("Who is going to play as 'O'?")
       return {
         squares:[
           [" ", " ", " "],
