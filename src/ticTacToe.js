@@ -55,6 +55,9 @@
       diagonals.push([cells[2],cells[4],cells[6]])
       return diagonals
     },
+    restart: function(){
+      this.setState(this.getInitialState())
+    },
     render: function() {
       var that = this
       return (
@@ -65,6 +68,7 @@
           <div className='status'>{this.state.status}</div>
           <div className='infoArea'>Current player: {this.state.players[0].name} playing as {this.state.players[0].mark}</div>
           <div className='errors'>{this.state.errors}</div>
+          <input type="submit" value="New Game" onClick={this.restart}/>
         </div>
       )
     },

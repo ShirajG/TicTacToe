@@ -55,6 +55,9 @@
       diagonals.push([cells[2],cells[4],cells[6]])
       return diagonals
     },
+    restart: function(){
+      this.setState(this.getInitialState())
+    },
     render: function() {
       var that = this
       return (
@@ -64,7 +67,8 @@
           }), 
           React.createElement("div", {className: "status"}, this.state.status), 
           React.createElement("div", {className: "infoArea"}, "Current player: ", this.state.players[0].name, " playing as ", this.state.players[0].mark), 
-          React.createElement("div", {className: "errors"}, this.state.errors)
+          React.createElement("div", {className: "errors"}, this.state.errors), 
+          React.createElement("input", {type: "submit", value: "New Game", onClick: this.restart})
         )
       )
     },
