@@ -33,15 +33,15 @@ h2{
   line-height: 0;
 }
 .tile{
+  cursor: pointer;
   font-family: 'Rock Salt', cursive;
   vertical-align:top;
   text-align: center;
   font-size: 2.5em;
   display: inline-block;
   width: 30%;
-  height: 20vw;
-  max-height: 200px;
-  background-color: white;
+  height: 15%;
+  max-height: 150px;
 }
 ._4{
   border: 1px solid rgba(0,0,0,0.5);
