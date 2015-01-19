@@ -18,7 +18,7 @@ h2{
   margin: 30px auto;
 }
 .X {
-  color: #ED6268;
+  color: #D52F37;
 }
 .O {
   color: #52C2EB;
@@ -90,8 +90,15 @@ h2{
 }
 .errors{
   position: relative;
+  font-family: 'Open Sans';
   margin: 30px auto;
   left: -5%;
   text-align: center;
   color:red;
+}
+@media only screen and (max-width: 480px){
+  #app{
+    padding-left: 15px;
+    width:100%;
+  }
 }
